@@ -3,7 +3,7 @@
   "description": "My Wordpress Composer Starter Template for quick-starting Wordpress projects",
   "type": "wordpress-project",
   "license": "GPL-3.0-or-later",
-  "version": "2024.0.4",
+  "version": "2024.12.4",
   "authors": [
     {
       "name": "Ankit Samaddar",
@@ -42,7 +42,7 @@
   },
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "source",
+    "preferred-install": "dist",
     "process-timeout": 300,
     "sort-packages": true,
     "vendor-dir": "public/wp-content/vendor",
