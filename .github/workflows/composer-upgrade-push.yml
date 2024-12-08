@@ -45,6 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           version=$(jq -r '.version' composer.json)
-          git tag "$version"
-          git push origin "$version"
-          gh release create "$version" --generate-notes --title "Release $version"
+          git tag -f "$version"
+          git push origin -f "$version"
+          gh release create "$version" --generate-notes --title "Release $version" --latest
