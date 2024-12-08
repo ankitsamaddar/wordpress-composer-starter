@@ -1,0 +1,57 @@
+# Workflow 1: composer-upgrade-cron.yml
+name: Automatic Composer Upgrade (Hourly)
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs hourly
+
+jobs:
+  update_composer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          tools: composer:v2
+
+      - name: Upgrade dependencies
+        run: composer update --prefer-stable --prefer-dist --no-interaction
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "::set-output name=changed::true"
+          else
+            echo "::set-output name=changed::false"
+          fi
+
+      - name: Update version in composer.json
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          version=$(jq -r '.version' composer.json)
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          jq --arg new_version "$new_version" '.version = $new_version' composer.json > composer.json.tmp && mv composer.json.tmp composer.json
+
+      - name: Commit changes
+        if: steps.changes.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "[ci skip] Auto-update dependencies and bump version"
+
+      - name: Create tag and release
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          version=$(jq -r '.version' composer.json)
+          git tag "$version"
+          git push origin "$version"
+          gh release create "$version" --generate-notes --title "$version"
