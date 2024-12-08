@@ -2,15 +2,11 @@
 
 WP-Starter simplifies WordPress development by using Composer for package and dependency management. Composer allows to easily update WordPress plugins with semantic versioning (SemVer) and manage .org plugins via `composer`. It keeps development environment consistent and maintainable.🚀
 
----
-
 ## Features ✨
 
 - **Composer Integration**: Manage WordPress core, themes, and plugins as dependencies.
 - **Semantic Versioning**: Keep plugins updated with strict version control.\
 - **Custom Scripts**: Automate salts reset and project cleanup.
-
----
 
 ## Project Structure
 
@@ -30,8 +26,6 @@ Here's how the project is organized:
 │       └── index.php             # Placeholder file
 └── README.md                     # Project documentation
 ```
-
----
 
 ## Getting Started 🚀
 
@@ -62,7 +56,28 @@ Ensure you have the following installed:
    cd <your-project-name>
    ```
 
----
+### With [Local](https://localwp.com/) by Flywheel
+
+- Install [Local](https://localwp.com/).
+
+  ```powershell
+  winget install --id Flywheel.Local
+  ```
+
+- Create a new WordPress site using the UI
+- Navigate to the site's `app` directory in the terminal.
+- Run `rm -rf public` to delete the `public` directory.
+- Now install WordPress using:
+
+  ```powershell
+  composer create-project ankitsamaddar/wp-starter public
+  ```
+
+- Click the link in Local UI to visit the site in the browser.
+
+### Configuration
+
+Open up the `.env` file to edit database credentials or other WordPress constants.
 
 ## Custom Scripts 🛠️
 
