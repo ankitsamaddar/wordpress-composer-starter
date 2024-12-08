@@ -1,0 +1,22 @@
+# Ignore sensitive files
+.env
+
+# Ignore WordPress core files
+/public/wordpress/
+
+# Ignore wordpress folders
+public/wp-content/mu-plugins/
+public/wp-content/plugins/
+public/wp-content/themes/
+# /public/wp-uploads/
+
+# Ignore Composer dependencies
+public/wp-content/vendor/
+
+# Ignore other unnecessary files
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

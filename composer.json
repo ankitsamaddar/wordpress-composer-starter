@@ -1,0 +1,92 @@
+{
+  "name": "ankitsamaddar/wordpress-composer-starter",
+  "description": "My Wordpress Composer Starter Template for quick-starting Wordpress projects",
+  "type": "wordpress-project",
+  "license": "GPL-3.0-or-later",
+  "version": "2024.0.1",
+
+  "authors": [
+    {
+      "name": "Ankit Samaddar",
+      "homepage": "https://ankitsamaddar.github.io",
+      "role": "Developer"
+    }
+  ],
+
+  "support": {
+    "source": "https://github.com/ankitsamaddar/wordpress-composer-starter",
+    "issues": "https://github.com/ankitsamaddar/wordpress-composer-starter/issues"
+  },
+
+  "keywords": [
+    "wordpress",
+    "composer",
+    "dotenv",
+    "wp-cli",
+    "boilerplate",
+    "modern"
+  ],
+
+  "repositories": {
+    "wpackagist": {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  },
+
+  "require": {
+    "php": ">=8.0",
+    "composer/installers": "^2.3",
+    "johnpbloch/wordpress": "@stable",
+    "ffraenz/private-composer-installer": "^5.0",
+    "vlucas/phpdotenv": "^5.6"
+  },
+
+  "require-dev": {
+    "wp-cli/wp-cli": "@stable",
+    "aaemnnosttv/wp-cli-dotenv-command": "@stable",
+    "phpunit/phpunit": "^11.5"
+  },
+
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "process-timeout": 300,
+    "sort-packages": true,
+    "vendor-dir": "public/wp-content/vendor",
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress": true,
+      "vlucas/phpdotenv": true,
+      "ffraenz/private-composer-installer": true,
+      "aaemnnosttv/wp-cli-dotenv-command": true
+    }
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wordpress",
+    "installer-paths": {
+      "public/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ],
+      "public/wp-content/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "public/wp-content/{$name}": [
+        "type:wordpress-dropin"
+      ]
+    }
+  },
+  "scripts": {
+
+    "set-salts": "public/wp-content/vendor/bin/wp dotenv salts generate --env-file=.env",
+    "post-create-project-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "@php -r \"unlink('.env.example');\"",
+      "@composer run set-salts"
+    ]
+  }
+
+}
