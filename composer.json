@@ -1,9 +1,9 @@
 {
-  "name": "ankitsamaddar/wordpress-composer-starter",
+  "name": "ankitsamaddar/wp-starter",
   "description": "My Wordpress Composer Starter Template for quick-starting Wordpress projects",
   "type": "wordpress-project",
   "license": "GPL-3.0-or-later",
-  "version": "2024.0.1",
+  "version": "2024.0.4",
 
   "authors": [
     {
@@ -14,8 +14,8 @@
   ],
 
   "support": {
-    "source": "https://github.com/ankitsamaddar/wordpress-composer-starter",
-    "issues": "https://github.com/ankitsamaddar/wordpress-composer-starter/issues"
+    "source": "https://github.com/ankitsamaddar/wp-starter",
+    "issues": "https://github.com/ankitsamaddar/wp-starter/issues"
   },
 
   "keywords": [
@@ -35,7 +35,7 @@
   },
 
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.2",
     "composer/installers": ">=2.3",
     "johnpbloch/wordpress": ">=6.7",
     "ffraenz/private-composer-installer": ">=5.0",
