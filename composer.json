@@ -50,7 +50,7 @@
 
   "config": {
     "optimize-autoloader": true,
-    "preferred-install": "dist",
+    "preferred-install": "source",
     "process-timeout": 300,
     "sort-packages": true,
     "vendor-dir": "public/wp-content/vendor",
