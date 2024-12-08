@@ -12,7 +12,7 @@ public/wp-content/themes/
 
 # Ignore Composer dependencies
 public/wp-content/vendor/
-composer-lock.json
+composer.lock
 
 # Ignore other unnecessary files
 *.log
