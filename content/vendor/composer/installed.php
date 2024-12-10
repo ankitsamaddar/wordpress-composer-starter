@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'ankitsamaddar/wp-starter',
-        'pretty_version' => '2024.12.6',
-        'version' => '2024.12.6.0',
+        'pretty_version' => '2024.12.7',
+        'version' => '2024.12.7.0',
         'reference' => null,
         'type' => 'wordpress-project',
         'install_path' => __DIR__ . '/../../../',
@@ -20,8 +20,8 @@
             'dev_requirement' => true,
         ),
         'ankitsamaddar/wp-starter' => array(
-            'pretty_version' => '2024.12.6',
-            'version' => '2024.12.6.0',
+            'pretty_version' => '2024.12.7',
+            'version' => '2024.12.7.0',
             'reference' => null,
             'type' => 'wordpress-project',
             'install_path' => __DIR__ . '/../../../',
