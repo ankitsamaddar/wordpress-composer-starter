@@ -2,7 +2,7 @@ name: Automatic Composer Upgrade (Hourly)
 
 on:
   schedule:
-    - cron: '0 * * * *' # Runs hourly
+    #- cron: '0 * * * *' # Runs hourly
 
 jobs:
   update_composer:
