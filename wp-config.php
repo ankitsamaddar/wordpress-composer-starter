@@ -19,6 +19,10 @@
  * @package WordPress
  */
 
+
+// Autolod the plugins
+require __DIR__ . '/content/vendor/autoload.php';
+
 // WordPress home URL (for the front-of-site)
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '');
 // WordPress site URL (which is for the admin)
@@ -33,10 +37,6 @@ define('WP_CONTENT_DIR', dirname(__FILE__) . '/content/wp-content');
 define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content/wp-content' );
 define('WP_PLUGIN_DIR', dirname(__FILE__) . '/content/wp-content/plugins');
 define('WP_PLUGIN_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content/wp-content/plugins');
-
-// Autolod the plugins
-require __DIR__ . '/content/vendor/autoload.php';
-
 
 // Define environment variables
 if (file_exists(__DIR__ . '/.env')) {
@@ -110,4 +110,4 @@ define('WP_ENVIRONMENT_TYPE', 'local');
 define('ABSPATH',   __DIR__ . '/wordpress');
 
 /* Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once(ABSPATH . '/wp-settings.php');

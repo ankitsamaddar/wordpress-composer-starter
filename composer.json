@@ -45,14 +45,10 @@
     "preferred-install": "dist",
     "process-timeout": 300,
     "sort-packages": false,
-    "vendor-dir": "content/vendor",
+    "vendor-dir": "content/wp-content/vendor",
     "allow-plugins": {
       "composer/installers": true,
-      "johnpbloch/wordpress": true,
-      "johnpbloch/wordpress-core-installer": true,
-      "ffraenz/private-composer-installer": true,
-      "vlucas/phpdotenv": true,
-      "aaemnnosttv/wp-cli-dotenv-command": true
+      "johnpbloch/wordpress-core-installer": true
     }
   },
   "extra": {
@@ -76,10 +72,11 @@
     "post-create-project-cmd": [
       "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
       "@php -r \"unlink('.env.example');\"",
+      "@php -r \"unlink('README.md');\"",
       "@composer run set-salts"
     ],
     "set-salts": "@wp dotenv salts regenerate",
-    "wp": "content/vendor/bin/wp",
+    "wp": "content/wp-content/vendor/bin/wp",
     "reset": "rm -rf content && rm -rf wordpress && rm composer.lock"
   },
   "scripts-descriptions": {
