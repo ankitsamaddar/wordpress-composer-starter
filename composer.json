@@ -44,7 +44,7 @@
     "optimize-autoloader": true,
     "preferred-install": "dist",
     "process-timeout": 300,
-    "sort-packages": true,
+    // "sort-packages": true,
     "vendor-dir": "content/vendor",
     "allow-plugins": {
       "composer/installers": true,
