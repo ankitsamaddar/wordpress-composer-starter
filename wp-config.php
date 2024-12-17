@@ -107,9 +107,7 @@ define('WP_ENVIRONMENT_TYPE', 'local');
 **/
 
 /* Absolute path to the WordPress directory. */
-if (!defined('ABSPATH')) {
-  define('ABSPATH',   __DIR__ . '/wordpress');
-}
+define('ABSPATH',   __DIR__ . '/wordpress');
 
 /* Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
