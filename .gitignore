@@ -2,16 +2,16 @@
 .env
 
 # Ignore WordPress core files
-/public/wordpress/
+wordpress/
 
 # Ignore wordpress folders
-public/wp-content/mu-plugins/
-public/wp-content/plugins/
-public/wp-content/themes/
-# /public/wp-uploads/
+content/wp-content/mu-plugins/
+content/wp-content/plugins/
+content/wp-content/themes/
+content/wp-uploads/
 
 # Ignore Composer dependencies
-public/wp-content/vendor/
+content/vendor/
 composer.lock
 
 # Ignore other unnecessary files
